@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/nameEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/checkTextTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toppings"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@id/nameEt"
+        app:layout_constraintTop_toBottomOf="@id/nameEt" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/whippedCreamCb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Whipped Cream"
+        android:paddingLeft="24dp"
+        android:textSize="16sp"
+
+        app:layout_constraintStart_toStartOf="@id/checkTextTv"
+        app:layout_constraintTop_toBottomOf="@id/checkTextTv" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/chocolateCb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chocolate"
+        android:textSize="16sp"
+        android:paddingLeft="24dp"
+
+        app:layout_constraintStart_toStartOf="@+id/whippedCreamCb"
+        app:layout_constraintTop_toBottomOf="@+id/whippedCreamCb" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/quantityTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/quantity"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/chocolateCb"
+        app:layout_constraintTop_toBottomOf="@+id/chocolateCb" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/minusBtn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/minus"
+        android:onClick="decrement"
+        app:layout_constraintStart_toStartOf="@+id/quantityTv"
+        app:layout_constraintTop_toBottomOf="@+id/quantityTv" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/quantityDisplayTv"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:text="1"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/minusBtn"
+        app:layout_constraintTop_toTopOf="@+id/minusBtn" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/plusBtn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:text="@string/plus"
+        android:onClick="increment"
+        app:layout_constraintStart_toEndOf="@+id/quantityDisplayTv"
+        app:layout_constraintTop_toTopOf="@+id/quantityDisplayTv" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/priceTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/order_summery"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/minusBtn"
+        app:layout_constraintTop_toBottomOf="@id/minusBtn" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/order_summary_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/priceTv"
+        app:layout_constraintTop_toBottomOf="@id/priceTv" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/orderBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="submitOrder"
+        android:text="@string/order"
+        app:layout_constraintStart_toStartOf="@+id/order_summary_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/order_summary_text_view" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/orderEmailBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="submitOrderEmail"
+        android:text="@string/order_email"
+        app:layout_constraintStart_toEndOf="@+id/orderBtn"
+        app:layout_constraintTop_toTopOf="@+id/orderBtn"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
